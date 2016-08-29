@@ -1,0 +1,310 @@
+@charset "utf-8";
+@import 'https://fonts.googleapis.com/css?family=Julius+Sans+One';
+body{
+    overflow-x: hidden;
+    font-family: 'Julius Sans One', sans-serif;}/*1000px是因为下面的图片*/
+h1{
+	padding-top:12vw;
+}
+h2{font-size:30px;}
+h3{
+	font-size: 20px;
+	text-align:center;
+}
+p{
+	letter-spacing:1px;
+	color:white;
+	text-indent:20px;
+	text-transform: uppercase;
+}
+ul{
+  margin:0;
+  list-style:none;
+}
+a{
+	text-decoration: none;
+}
+nav{
+	z-index:9999;
+	position:fixed;
+	height:8vmin;
+	width: calc(100vw - 17px);
+	border-bottom:1px dashed #044e97;
+	overflow:hidden;
+	background:rgba(8,110,213,.2);	
+}
+nav ul{
+	float:right;
+}
+nav ul li,
+nav .logo{
+	display:inline-block;
+	height:8vmin;
+	line-height:8vmin;
+}
+nav ul li a,
+nav .logo a{
+	line-height:inherit;
+	display:inline-block;
+	height:8vmin;
+	color:white;
+}
+nav ul li a{
+  	padding: 0 5vmin;
+  	transition: background .3s;
+}
+nav ul li a:hover{
+    background:rgba(8,110,213,.6);
+}
+nav .logo img{
+	display:block;
+	width:8vh;
+	height:8vh;
+	margin-left:10px;
+	float:left;
+}
+nav ul li.logo{
+	float:left;
+	padding:10px;
+}
+#banner{
+	background: url('../images/banner.jpg');
+	background-attachment:fixed;
+	background-size:100vw  100vh;
+	background-repeat:no-repeat;
+	height:100vh;
+}
+#banner .inner{
+    width: 100vw;
+	max-height:300px;
+	text-align: center;
+	margin:0 auto;
+	position:relative;
+	top:160px;
+}
+
+#banner .inner h1{
+    width:10ch;
+	height:30px;
+	margin:0 auto;
+	padding-bottom:10px;
+	color:gold;
+	overflow:hidden;
+	white-space: nowrap; /*来自CSS揭秘*/
+	animation:toFadein 3s linear;
+}
+@keyframes toFadein{
+	from{
+		width:0px;
+	}
+	to{
+		width:212px;
+	}
+}
+
+button{
+	padding:10px;
+	border: none;
+	border-radius:.2em;
+	color:#EEE;
+	background:tomato;
+}
+#banner .inner .subheading{
+	line-height:30px;
+	margin:30px 0;
+	font-size:18px;
+}
+.logo{
+	font-size:20px;
+	letter-spacing:3px;
+}
+.green-section{
+	margin:  0;
+    padding:100px 0;
+	text-align:center;
+	color:white;
+	background: gray;
+}
+.green-section .subheading{
+	line-height:30px;
+	font-size:18px;
+	font-weight: 100;
+}
+.green-section .icon-group .icon{
+	display:inline-block;
+}
+.icon-group{
+	margin-top:60px;
+}
+.icon-group .icon:nth-child(1) a i:hover,
+.icon-group .icon:nth-child(3) a i:hover{
+	color: gold;
+}
+.icon-group .icon:nth-child(2) a i{
+	display: block;
+	width: 80px;
+	height: 80px;
+	font-weight: 100;
+	font-size: 60px;
+	color: black;
+	border-radius: 100%;
+	background: gold;
+}
+.green-section .wrapper{
+	max-width:1080px;
+	margin:0 auto;
+}
+.gray-section{
+	height:900px;
+}
+.gray-section .article-preview .img-section,
+.img-section>img{
+	position: relative;
+	width:500px;
+	height:300px;
+	margin:0;
+	background: #333;
+}
+.article-preview>div{
+	float:left;
+}
+.text-section{
+	width:calc(100% - 500px); 
+	height:300px;
+	background: #191E29;
+}
+.text-section h2,.text-section p{
+	color:white;
+	position:relative;
+	left:100px;
+}
+.text-section p{
+	left:100px;
+}
+
+.purple-section{
+	background:#3E3763;
+	padding-top:80px;
+	color:black;
+}
+.purple-section .heading-wrapper{
+	text-align:center;
+}
+.card-group{
+	margin:0 auto;
+	padding:0;
+	width:60%;
+	position:relative;
+	height:900px;
+}
+.card-group .card{
+	box-sizing: border-box;
+	padding:0 20px;
+	position:relative;
+	width:50%;
+	float:left;
+	height:300px;
+	transition:all .3s;
+}
+
+.card-group .card:hover{
+	cursor:pointer;
+	box-shadow:0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.card-group .card:nth-child(1){
+	background:rgba(0, 0, 0, 0.05);
+}
+.card-group .card:nth-child(2){
+	background:rgba(0, 0, 0, 0.10);
+}
+.card-group .card:nth-child(3){
+	background:rgba(0, 0, 0, 0.15);
+}
+.card-group .card:nth-child(4){
+	background:rgba(0, 0, 0, 0.20);
+}
+.card-group .card:nth-child(5){
+	background:rgba(0, 0, 0, 0.25);
+}
+.card-group .card:nth-child(6){
+	background:rgba(0, 0, 0, 0.30);
+}
+footer{
+	background:#333;
+	color:#fff;
+	min-height:50px;
+	text-align:center;
+}
+footer li a{
+	color: gold;
+}
+footer li a:active,
+footer li a:hover{
+	color: aqua;
+}
+.share-group{
+	display:block;
+	width:100vw;
+	margin:0 auto;
+	padding:30px;
+}
+.share-group li{
+	display:inline-block;
+	padding:30px;
+}
+.copy{
+	padding-bottom:20px;
+}
+.mask{
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	transition:all 1.5s;
+	background:rgba(0, 0, 0, .7);
+}
+#sidebar{
+	position:fixed;  /*nav同样是fixed形式的position*/
+	width:300px;
+	background:rgba(44,62,80,0.5);
+	top:47px;
+	right:-300px;
+	bottom:0;  /*不用再设置height*/
+	z-index:999;/*设置次高等级*/
+	transition:all .3s;
+}
+#sidebar ul{
+	padding:0;
+}
+#sidebar ul li{
+	list-style:none;
+}
+#sidebar a{
+	position:relative;
+	text-decoration: none;
+	color:#eee;
+	left:0;
+	padding-left:0;
+	display:inline-block;
+	width:100%;
+	padding:10px 6px;
+	background:rgba(44,62,80,0.9);
+	transition:all .5s;
+}
+#sidebar a:hover{
+	background:linear-gradient(135deg, rgba(0,0,0,0.0) 0, rgba(0,0,0,0.0) 15.56px, aqua 0, aqua 30px), 
+               linear-gradient(45deg, rgba(0,0,0,0.0) 0, rgba(0,0,0,0.0) 15.56px, aqua 0, aqua 30px);
+    background-position: top,bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+	left:-22px;
+	color:tomato;
+	padding-left:28px;
+}
+#back-to-top{
+	position:fixed;
+	bottom:10px;
+	right:10px;
+}

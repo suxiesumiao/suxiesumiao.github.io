@@ -1,0 +1,56 @@
+@charset "utf-8";
+#button0 span,
+#button1 span{
+  display: block;
+  line-height: 3rem;
+  font-size: 14px;
+  font-weight: 100;
+  margin-left:30%;
+  letter-spacing: 6px;
+}
+#button0 span{
+  color: #222;
+}
+#button1 span{
+  color: rgba(255,20,147,1);
+}
+#deeppinkbutton{
+  width: 300px;
+  margin: 6rem calc(50% - 150px);
+  position: relative;
+}
+#button0,
+#button1{
+  display: block;
+  width: 90%;
+  height: 3rem;
+  margin: 2rem auto;
+  transition: all .3s;
+}
+#button0{
+  background: linear-gradient(rgba(234,76,137,1),rgba(255,20,147,1));
+}
+#button0:hover{
+  box-shadow: 0 0 0 3px #1D1F20,
+              0 0 0 6px rgba(255,20,147,1),
+              0 0 0 8px #1D1F20,
+              0 0 0 9px rgba(255,20,147,1);
+}
+#button0:focus,
+#button0:active{
+  box-shadow: 0 0 0 1px rgba(255,20,147,1);
+  background: rgba(234,76,137,1);
+}
+#button1{
+  background: transparent;
+  box-shadow: 0 0 0 3px rgba(255,20,147,1) inset;
+}
+#button1:hover{
+  box-shadow: 0 0 0 1px #1D1F20 inset,
+                        0 0 0 3px rgba(255,20,147,1) inset;
+}
+#button1:focus,
+#button1:active{
+  box-shadow: 0 0 0 1px rgba(255,20,147,1) inset;
+  background: #191E29;
+}
