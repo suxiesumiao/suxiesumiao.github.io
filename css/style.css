@@ -90,7 +90,7 @@ nav ul li a:hover{
 		padding: 0 1vmin;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	nav{
 		height: 16vmin;
 	}
