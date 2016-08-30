@@ -212,12 +212,15 @@ nav ul li a:hover{
 	transition:all .3s;
 }
 /* 媒体查询，使得card自适应屏幕 */
-@media all and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
 	.card-group{
 		width: 90%;
 	}
 }
-@media all and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+	.card-group{
+		width: 80%;
+	}
 	.card-group .card{
 		width: 100%;
 	}
