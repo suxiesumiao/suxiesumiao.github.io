@@ -1,19 +1,26 @@
 @charset "utf-8";
 @import 'https://fonts.googleapis.com/css?family=Julius+Sans+One';
 body{
+	margin: 0;
+	padding: 0;
     overflow-x: hidden;
-    font-family: 'Julius Sans One', sans-serif;}/*1000px是因为下面的图片*/
+    font-family: 'Julius Sans One', sans-serif;}
 h1{
-	padding-top:12vw;
+	font-size: 40px;
+	font-weight: 100;
 }
-h2{font-size:30px;}
+h2{
+	font-size:30px;
+	font-weight: 200;
+}
 h3{
 	font-size: 20px;
+	font-weight: 200;
 	text-align:center;
 }
 p{
 	letter-spacing:1px;
-	color:white;
+	color:#EFEFEF;
 	text-indent:20px;
 	text-transform: uppercase;
 }
@@ -24,13 +31,19 @@ ul{
 a{
 	text-decoration: none;
 }
+button{
+	padding:10px;
+	border: none;
+	border-radius:.2em;
+	color:#EEE;
+	background:tomato;
+}
 nav{
-	z-index:9999;
+	z-index:9;
 	position:fixed;
 	height:8vmin;
 	width: calc(100vw - 17px);
-	border-bottom:1px dashed #044e97;
-	overflow:hidden;
+	border-bottom:1px dashed #044E97;
 	background:rgba(8,110,213,.2);	
 }
 nav ul{
@@ -38,16 +51,25 @@ nav ul{
 }
 nav ul li,
 nav .logo{
+	font-size:20px;
+	letter-spacing:3px;
 	display:inline-block;
 	height:8vmin;
 	line-height:8vmin;
 }
 nav ul li a,
-nav .logo a{
+.logo a{
 	line-height:inherit;
 	display:inline-block;
 	height:8vmin;
 	color:white;
+}
+.logo img{
+	display:block;
+	width:8vmin;
+	height:8vmin;
+	margin-left:1vmin;
+	float:left;
 }
 nav ul li a{
   	padding: 0 5vmin;
@@ -56,31 +78,23 @@ nav ul li a{
 nav ul li a:hover{
     background:rgba(8,110,213,.6);
 }
-nav .logo img{
-	display:block;
-	width:8vh;
-	height:8vh;
-	margin-left:10px;
-	float:left;
-}
-nav ul li.logo{
-	float:left;
-	padding:10px;
-}
+
+
+
 #banner{
-	background: url('../images/banner.jpg');
+	background: url('../images/banner.jpg') no-repeat;
 	background-attachment:fixed;
-	background-size:100vw  100vh;
-	background-repeat:no-repeat;
-	height:100vh;
+	background-position: center;
+	background-size:cover;
+	height:96vh;
 }
 #banner .inner{
+	position:relative;
     width: 100vw;
 	max-height:300px;
 	text-align: center;
 	margin:0 auto;
-	position:relative;
-	top:160px;
+	top:30vh;
 }
 
 #banner .inner h1{
@@ -91,56 +105,44 @@ nav ul li.logo{
 	color:gold;
 	overflow:hidden;
 	white-space: nowrap; /*来自CSS揭秘*/
-	animation:toFadein 3s linear;
+	animation:slideRight 3s linear;
 }
-@keyframes toFadein{
+@keyframes slideRight{
 	from{
-		width:0px;
+		width:0;
 	}
 	to{
-		width:212px;
+		width:10ch;
 	}
 }
 
-button{
-	padding:10px;
-	border: none;
-	border-radius:.2em;
-	color:#EEE;
-	background:tomato;
-}
-#banner .inner .subheading{
+.inner .subheading{
 	line-height:30px;
 	margin:30px 0;
 	font-size:18px;
 }
-.logo{
-	font-size:20px;
-	letter-spacing:3px;
-}
+
+
 .green-section{
-	margin:  0;
-    padding:100px 0;
+	height: 80vh;
+    padding-top:10vh;
 	text-align:center;
-	color:white;
+	color:#EEEFFF;
 	background: gray;
 }
-.green-section .subheading{
+.subheading{
 	line-height:30px;
 	font-size:18px;
 	font-weight: 100;
 }
-.green-section .icon-group .icon{
+.icon-group .icon{
 	display:inline-block;
 }
-.icon-group{
-	margin-top:60px;
-}
-.icon-group .icon:nth-child(1) a i:hover,
-.icon-group .icon:nth-child(3) a i:hover{
+.icon:nth-child(1) a i:hover,
+.icon:nth-child(3) a i:hover{
 	color: gold;
 }
-.icon-group .icon:nth-child(2) a i{
+.icon:nth-child(2) a i{
 	display: block;
 	width: 80px;
 	height: 80px;
@@ -150,14 +152,13 @@ button{
 	border-radius: 100%;
 	background: gold;
 }
-.green-section .wrapper{
-	max-width:1080px;
-	margin:0 auto;
-}
+
+
+
 .gray-section{
 	height:900px;
 }
-.gray-section .article-preview .img-section,
+.img-section,
 .img-section>img{
 	position: relative;
 	width:500px;
@@ -173,40 +174,54 @@ button{
 	height:300px;
 	background: #191E29;
 }
-.text-section h2,.text-section p{
-	color:white;
+.text-section h2,
+.text-section p{
 	position:relative;
 	left:100px;
+	color:white;
 }
 .text-section p{
-	left:100px;
+	left:10px;
 }
 
+
+
 .purple-section{
-	background:#3E3763;
-	padding-top:80px;
+	padding-top:10vh;
 	color:black;
+	background:#3E3763;
 }
-.purple-section .heading-wrapper{
+.heading-wrapper{
 	text-align:center;
 }
 .card-group{
 	margin:0 auto;
 	padding:0;
-	width:60%;
+	width:70%;
 	position:relative;
-	height:900px;
+	/* 清除浮动 */
+	overflow: hidden;
 }
 .card-group .card{
-	box-sizing: border-box;
-	padding:0 20px;
 	position:relative;
+	box-sizing: border-box;
+	padding:10px;
 	width:50%;
 	float:left;
 	height:300px;
 	transition:all .3s;
 }
-
+/* 媒体查询，使得card自适应屏幕 */
+@media all and (max-width: 1024px) {
+	.card-group{
+		width: 90%;
+	}
+}
+@media all and (max-width: 768px) {
+	.card-group .card{
+		width: 100%;
+	}
+}
 .card-group .card:hover{
 	cursor:pointer;
 	box-shadow:0 0 10px rgba(255, 255, 255, 0.5);
