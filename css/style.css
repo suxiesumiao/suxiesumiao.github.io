@@ -26,6 +26,7 @@ p{
 }
 ul{
   margin:0;
+  padding: 0;
   list-style:none;
 }
 a{
@@ -327,30 +328,22 @@ footer li a:hover{
 	background:rgba(0, 0, 0, .7);
 }
 #sidebar{
+	z-index:9;/*设置次高等级*/
 	position:fixed;  /*nav同样是fixed形式的position*/
 	width:300px;
-	background:rgba(44,62,80,0.5);
 	top: 8vmin;
 	right:-300px;
 	bottom:0;  /*不用再设置height*/
-	z-index:999;/*设置次高等级*/
+	background:rgba(44,62,80,0.5);
 	transition:all .3s;
-}
-#sidebar ul{
-	padding:0;
-}
-#sidebar ul li{
-	list-style:none;
 }
 #sidebar a{
 	position:relative;
-	text-decoration: none;
-	color:#eee;
-	left:0;
-	padding-left:0;
 	display:inline-block;
 	width:100%;
-	padding:10px 6px;
+	line-height: 30px;
+	color:#EEE;
+	left:0;
 	background:rgba(44,62,80,0.9);
 	transition:all .5s;
 }
@@ -358,6 +351,7 @@ footer li a:hover{
 	background:rgba(0,0,0,0);
 }
 #back-to-top{
+	z-index: 99;
 	position:fixed;
 	bottom:10px;
 	right:10px;

@@ -1,5 +1,5 @@
 ;$(function(){
-	// 侧边栏
+	// 侧边栏调用
 	$aChoosen = $("nav ul li:last-child a");
 	$sidebar = $("#sidebar");
 	$mask = $("#mask");
@@ -13,6 +13,13 @@
 			$sidebar.css("right","-300px");
 			$mask.removeClass("mask");
 		}
+	//侧边栏下拉
+	$(".sidebar h3").on("click",function(){
+      $(".level-1 .level-2").slideUp(100);
+      if(!$(this).next().is(":visible")){
+        $(this).next().slideDown(300);
+      }
+    });
 
 	//返回顶部
 	$backToTop = $("#back-to-top");
