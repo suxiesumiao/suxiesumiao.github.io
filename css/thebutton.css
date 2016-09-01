@@ -16,7 +16,8 @@
 }
 #deeppinkbutton{
   width: 300px;
-  margin: 6rem calc(50% - 150px);
+  margin-top: 4rem;
+  margin-left: calc(50% - 150px);
   position: relative;
 }
 #button0,
@@ -24,7 +25,7 @@
   display: block;
   width: 90%;
   height: 3rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   transition: all .3s;
 }
 #button0{
