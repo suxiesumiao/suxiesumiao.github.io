@@ -190,6 +190,9 @@ nav ul li a:hover{
 	margin:0;
 	background: #333;
 }
+.article-preview{
+	position: relative;
+}
 .article-preview>div{
 	float:left;
 }
