@@ -18,15 +18,18 @@ function arrMaker() {
     }
     return pointArr
 }
+let point = arrMaker()
 function paint() {
     con.clearRect(0, 0, width, height)
-    let point = arrMaker()
-    for (let j = 0; j < 34; j++) {
+        point.push(point.shift())
+        // point.reverse()
+    for (let j = 0; j < 30; j++) {
         con.beginPath()
         con.moveTo(point[j][0], point[j][1])
-        con.lineTo(point[j + 1][0], point[j + 1][1])
-        con.lineTo(point[j + 2][0], point[j + 2][1])
-        let color = `hsla(${360 - 10 * j},100%,70%,.7)`
+        for (let k = 1; k < 5; k++) {
+            con.lineTo(point[j + k][0], point[j + k][1])
+        }
+        let color = `hsla(${10 * j},100%,70%,${j / 100})`
         con.fillStyle = color
         con.strokeStyle = color
         con.fill()
@@ -36,7 +39,7 @@ function paint() {
 }
 let timer = setInterval(function () {
     paint()
-}, 1700)
+}, 2000)
 body.addEventListener('click', function () {
     paint()
 }, false)
