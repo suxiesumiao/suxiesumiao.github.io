@@ -49,7 +49,7 @@ function paint(e) {
 // 鼠标移动监听 paint
 body.addEventListener('mousemove', paint, false)
     // 鼠标双击取消 对paint的监听
-body.addEventListener('dbclick', function() {
+body.addEventListener('dblclick', function() {
     body.removeEventListener('mousemove', paint, false)
 }, false)
 document.addEventListener('visibilitychange', function() {
