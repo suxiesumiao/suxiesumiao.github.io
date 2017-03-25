@@ -48,10 +48,16 @@ function paint(e) {
 }
 // 鼠标移动监听 paint
 body.addEventListener('mousemove', paint, false)
-    // 鼠标双击取消 对paint的监听
+
+// 鼠标双击取消 对paint的监听
 body.addEventListener('dblclick', function() {
     body.removeEventListener('mousemove', paint, false)
 }, false)
+
+body.addEventListener('click', function() {
+    body.addEventListener('mousemove', paint, false)
+}, false)
+
 document.addEventListener('visibilitychange', function() {
     if (document.visibilityState === 'hidden') {
         normal_title = document.title;
