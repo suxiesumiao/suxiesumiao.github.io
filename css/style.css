@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    background-color: #34495E;
+}
+
+canvas {
+    width: 1366px;
+    height: 768px;
+    margin: 0 auto;
+    background-size: 1366px 768px;
+    background-repeat: no-repeat;
+    background-color: #3F4869;
+}

@@ -5,7 +5,7 @@ let con = canvas.getContext('2d')
 let body = document.getElementsByTagName('body')[0]
 
 
-let times = 35
+let times = 50
 let space = Math.floor(width / times)
 
 
@@ -24,6 +24,7 @@ function pointMaker() {
     return pointArr
 }
 let point = pointMaker()
+
 function paint(e) {
     let x = e.x + Math.floor(Math.random() * 60 - 30)
     let y = e.y + Math.floor(Math.random() * 60 - 30)
@@ -36,14 +37,14 @@ function paint(e) {
         for (let k = 1; k < 4; k++) {
             con.lineTo(point[j + k][0], point[j + k][1])
         }
-        let color = `hsla(${10 * j},100%,70%,${j / 40})`
+        let color = `hsla(${10 * j},100%,70%,${j / 50})`
         con.fillStyle = color
-        // con.strokeStyle = color
+        con.strokeStyle = color
         con.fill()
-        // con.stroke()
+        con.stroke()
         con.closePath()
     }
 }
-body.addEventListener('mousemove', function (e) {
+body.addEventListener('mousemove', function(e) {
     paint(e)
 }, false)
