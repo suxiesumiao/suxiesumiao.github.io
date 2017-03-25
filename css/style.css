@@ -5,14 +5,50 @@
 }
 
 body {
-    background-color: #34495E;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+    background-color: #eee;
 }
 
-canvas {
+#container {
+    position: absolute;
+    text-align: center;
+    width: 400px;
+    /*height: 300px;*/
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #000;
+    border: 1px solid red;
+}
+
+h1 {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+p {}
+
+a {
+    color: #EEE;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+a:hover {
+    color: lightgreen;
+}
+
+#canvas {
+    position: absolute;
     width: 1366px;
-    height: 768px;
+    height: 672px;
     margin: 0 auto;
+    top: 0;
+    left: 0;
     background-size: 1366px 768px;
     background-repeat: no-repeat;
-    background-color: #3F4869;
 }

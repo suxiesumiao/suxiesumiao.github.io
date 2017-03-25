@@ -26,8 +26,8 @@ function pointMaker() {
 let point = pointMaker()
 
 function paint(e) {
-    let x = e.x + Math.floor(Math.random() * 60 - 30)
-    let y = e.y + Math.floor(Math.random() * 60 - 30)
+    let x = e.x + randomNumber(-2)
+    let y = e.y + randomNumber(-2)
     con.clearRect(0, 0, width, height)
     point.shift()
     point.push([x, y])
@@ -44,7 +44,17 @@ function paint(e) {
         con.stroke()
         con.closePath()
     }
+
 }
-body.addEventListener('mousemove', function(e) {
-    paint(e)
+// 鼠标移动监听 paint
+body.addEventListener('mousemove', paint, false)
+    // 鼠标双击取消 对paint的监听
+body.addEventListener('dbclick', function() {
+    body.removeEventListener('mousemove', paint, false)
 }, false)
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+        normal_title = document.title;
+        document.title = '(●—●)';
+    } else document.title = normal_title;
+});
