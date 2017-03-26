@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+    // canvas部分
     let canvas = document.getElementById('canvas')
     let width = canvas.width
     let height = canvas.height
@@ -6,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let body = document.getElementsByTagName('body')[0]
     let times = 50
     let space = Math.floor(width / times)
-
 
     function randomNumber(i) {
         return Math.floor(Math.random() * 60 + 15 * i)
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         return pointArr
     }
+
     let point = pointMaker()
 
     function paint(e) {
@@ -55,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // 双击恢复 监听paint
     body.addEventListener('dblclick', function() {
-        body.addEventListener('mousemove', paint, false)
-    }, false)
-
+            body.addEventListener('mousemove', paint, false)
+        }, false)
+        // 监听是否离开当前标签页
     document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
             normal_title = document.title;
@@ -65,18 +66,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else document.title = normal_title;
     });
 
-
+    // 中间hover部分
     let container = document.getElementById('container')
     let containerW = container.clientWidth * (-1)
     let containerH = container.clientHeight
+    let normal = 'translateX(-50%) translateY(-50%)'
     container.addEventListener('mousemove', function(e) {
         let percentX = e.layerX / containerW
         let percentY = e.layerY / containerH
-        this.style.transform = 'translateX(-50%) translateY(-50%) rotateX(' + percentY * 10 + 'deg) rotateY(' + percentX * 10 + 'deg)'
+        this.style.transform = normal + ' rotateX(' + percentY * 10 + 'deg) rotateY(' + percentX * 10 + 'deg)'
     }, false)
 
     container.addEventListener('mouseleave', function(e) {
-        this.style.transform = 'translateX(-50%) translateY(-50%)'
+        this.style.transform = normal
     })
 
 });
