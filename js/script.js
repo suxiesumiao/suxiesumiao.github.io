@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let percentX = e.layerX / containerW
         let percentY = e.layerY / containerH
         this.style.transform = normal + ' rotateX(' + percentY * 10 + 'deg) rotateY(' + percentX * 10 + 'deg)'
+            // console.log(e.layerY)
     }, false)
 
     container.addEventListener('mouseleave', function(e) {
