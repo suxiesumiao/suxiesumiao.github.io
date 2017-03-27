@@ -56,12 +56,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // 双击恢复 监听paint
     body.addEventListener('dblclick', function() {
-            body.addEventListener('mousemove', paint, false)
-        }, false)
-        // 监听是否离开当前标签页
+        body.addEventListener('mousemove', paint, false)
+    }, false)
+
+    let normal_title = document.title;
+    // 监听是否离开当前标签页
     document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
-            normal_title = document.title;
             document.title = '(●—●)记得回来';
         } else document.title = normal_title;
     });
