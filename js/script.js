@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     // 移动监听 paint
     body.addEventListener('mousemove', paint, false)
-    body.addEventListener('touchmove', paint, false)
+        // body.addEventListener('touchmove', paint, false)
 
     // 单击取消对paint的监听
     body.addEventListener('click', function() {
