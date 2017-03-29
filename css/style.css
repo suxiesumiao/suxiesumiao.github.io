@@ -26,6 +26,7 @@ body {
     /*居中*/
     transform: translateX(-50%) translateY(-50%);
     background-color: #161823;
+    background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0);
     user-select: none;
     transition: box-shadow .6s;
     animation: fadeIn 4s;
@@ -34,11 +35,12 @@ body {
 #container:hover {
     cursor: pointer;
     background-color: #231923;
+    background: linear-gradient( to left, #231923 0, #231923 30%, transparent 0, transparent 70%, #231923 0);
     box-shadow: 0 0 10px #fffbf0;
 }
 
 #container:active {
-    background-color: #161823;
+    /*background-color: #161823;*/
     box-shadow: none;
 }
 

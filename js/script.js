@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             let color = `hsla(${10 * j},100%,70%,${j / 50})`
             con.fillStyle = color
             con.strokeStyle = color
+            con.lineJoin = 'round'
             con.fill()
             con.stroke()
             con.closePath()
