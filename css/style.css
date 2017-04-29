@@ -23,7 +23,6 @@ body {
     height: 300px;
     left: 50%;
     top: 50%;
-    /*居中*/
     transform: translateX(-50%) translateY(-50%);
     background-color: #161823;
     background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0);
@@ -40,7 +39,6 @@ body {
 }
 
 #container:active {
-    /*background-color: #161823;*/
     box-shadow: none;
 }
 
@@ -91,11 +89,7 @@ a:hover {
 
 #canvas {
     position: absolute;
-    width: 1366px;
-    height: 672px;
     margin: 0 auto;
     top: 0;
     left: 0;
-    background-size: 1366px 768px;
-    background-repeat: no-repeat;
 }
