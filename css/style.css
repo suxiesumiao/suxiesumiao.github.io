@@ -7,7 +7,7 @@ body {
     height: 100vh;
     min-height: 600px;
     perspective: 1200px;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #161823;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
@@ -49,12 +49,10 @@ body {
 }
 
 h1 {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 100;
     font-size: 30px;
     color: #fffbf0;
     font-variant: small-caps;
-    letter-spacing: 10px;
     margin: 10px 0;
 }
 
@@ -76,7 +74,9 @@ p {
     text-align: center;
     bottom: 0;
 }
-
+.self{
+    color: gold;
+}
 a {
     color: #ddd;
     text-decoration: none;
