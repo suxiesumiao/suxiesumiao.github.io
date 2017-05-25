@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let width = canvas.width
     let height = canvas.height
     let con = canvas.getContext('2d')
+    if (!con) { return }
     let body = document.getElementsByTagName('body')[0]
     let times = 50
     let space = Math.floor(width / times)
@@ -38,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             con.fillStyle = color
             con.strokeStyle = color
             con.lineJoin = 'round'
+            con.closePath()
             con.fill()
             con.stroke()
-            con.closePath()
         }
     }
     // 移动监听 paint
