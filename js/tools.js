@@ -2,6 +2,13 @@
 (function (global) {
   global.tools = {
     linklist: function () {
+      // 节点
+      function Node(element) {
+        this.parent = null
+        this.element = element || null
+        this.previous = null
+        this.next = null
+      }
       function LinkedList() {
         this.head = new Node()
         this.head.parent = this
@@ -43,7 +50,7 @@
           this.length++
         },
         // 在链表的尾部添加
-        push: function(newElement){
+        push: function (newElement) {
           var tail = this.tail
           var newNode = new Node(newElement)
           tail.next = newNode
@@ -53,7 +60,11 @@
           this.length++
         },
         // 去除链表的首部元素 未考虑闭合链表
-        decapitate: function(){
+        decapitate: function () {
+          if (this.isCycle) {
+            console.error('闭合状态不能使用方法 - decapitate')
+            return
+          }
           this.head = this.head.next
           this.length--
         },
@@ -145,17 +156,7 @@
           return this
         }
       }
-      // 节点
-      function Node(element) {
-        this.parent = null
-        this.element = element || null
-        this.previous = null
-        this.next = null
-      }
-      return {
-        LinkedList: LinkedList,
-        Node: Node
-      }
+      return LinkedList
     }
   }
 })(window)

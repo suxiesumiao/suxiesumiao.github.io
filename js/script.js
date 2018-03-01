@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     return
   }
   // 链表引入
-  let linklistObj = tools.linklist()
-  
+  let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
   let times = 50
   let space = Math.floor(width / times)
@@ -21,16 +20,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function pointMaker() {
     // let pointArr = []
-    let pointLinkedList = new linklistObj.LinkedList
+    let pointLinkedList = new LinkedList
     // console.log(pointArrTep)
     for (let i = 0; i < times + 1; i++) {
       let xDisten = width - space * i
       let yDisten = randomNumber(i)
       let temp = [xDisten, yDisten]
       // pointArr.push(temp)
-      if(!pointLinkedList.head.element){
+      if (!pointLinkedList.head.element) {
         pointLinkedList.head.element = temp
-      }else{
+      } else {
         pointLinkedList.push(temp)
       }
     }
@@ -47,14 +46,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
     point.decapitate()
     point.push([x, y])
     for (let j = 0; j < times - 2; j++) {
-      if(!currentHead){ return }
+      if (!currentHead) {
+        return
+      }
       con.beginPath()
       con.moveTo(currentHead.element[0], currentHead.element[1])
       // for (let k = 1; k < 4; k++) {
       //   con.lineTo(point[j + k][0], point[j + k][1])
       // }
-      for(let i = 0; i < 1; i++){
-        if(!currentHeadNext){ return }
+      for (let i = 0; i < 1; i++) {
+        if (!currentHeadNext) {
+          return
+        }
         con.lineTo(currentHeadNext.element[0], currentHeadNext.element[1])
         currentHeadNext = currentHeadNext.next
       }
