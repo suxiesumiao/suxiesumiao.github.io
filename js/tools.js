@@ -4,14 +4,32 @@
     linklist: function () {
       // 节点
       function Node(element) {
+        /**
+         * 节点与节点之间是兄弟关系
+         * parent: 节点所处的链表
+         * element: 当前节点包含的元素
+         * previous: 当前节点的前一个节点
+         * next: 当前节点的下一个节点
+         * slef: 节点自身
+         */
         this.parent = null
         this.element = element || null
         this.previous = null
         this.next = null
         this.self = this
       }
+      Node.prototype = {
+        constructor: Node
+      }
       // 链表
       function LinkedList() {
+        /**
+         * head: 链表的头部
+         * tail: 链表的尾部
+         * slef: 链表自身
+         * length: 链表包含的节点数目
+         * isCycle: 链表是否头尾链接成环
+         */
         this.head = new Node()
         this.head.parent = this
         this.tail = this.head
@@ -25,8 +43,7 @@
         // 返回该节点
         find: function (item) {
           var currNode = this.head
-          console.log(currNode.element)
-          console.log(item)
+          // 判断暂时存在问题
           while (currNode.element.toString() !== item.toString()) {
             currNode = currNode.next
             if (!currNode) {
@@ -55,6 +72,7 @@
         push: function (newElement) {
           var tail = this.tail
           var newNode = new Node(newElement)
+          newNode.parent = this
           tail.next = newNode
           newNode.previous = tail
           this.tail = newNode
@@ -79,12 +97,12 @@
             return
           }
           this.length--
-            // 如果要删除的节点是尾节点
-            if (!current.next) {
-              this.tail = current.previous
-              current.previous.next = null
-              return current
-            }
+          // 如果要删除的节点是尾节点
+          if (!current.next) {
+            this.tail = current.previous
+            current.previous.next = null
+            return current
+          }
           // 如果要删除的节点是头节点
           if (!current.previous) {
             this.head = current.next

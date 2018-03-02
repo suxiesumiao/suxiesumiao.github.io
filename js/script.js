@@ -19,14 +19,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   function pointMaker() {
-    // let pointArr = []
     let pointLinkedList = new LinkedList
-    // console.log(pointArrTep)
     for (let i = 0; i < times + 1; i++) {
       let xDisten = width - space * i
       let yDisten = randomNumber(i)
       let temp = [xDisten, yDisten]
-      // pointArr.push(temp)
       if (!pointLinkedList.head.element) {
         pointLinkedList.head.element = temp
       } else {
@@ -41,29 +38,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let x = e.x + randomNumber(-3)
     let y = e.y + randomNumber(-3)
     let currentHead = points.head
-    let currentHeadNext = currentHead.next
+    // let currentHeadNext = currentHead.next
     con.clearRect(0, 0, width, height)
-    points.decapitate()
-    points.push([x, y])
+    
     for (let j = 0; j < times - 2; j++) {
-      if (!currentHead) {
-        return
-      }
+      if (!currentHead) { return }
       con.beginPath()
       con.moveTo(currentHead.element[0], currentHead.element[1])
       // for (let k = 1; k < 4; k++) {
       //   con.lineTo(point[j + k][0], point[j + k][1])
       // }
-      for (let i = 0; i < 1; i++) {
-        if (!currentHeadNext) {
-          return
-        }
-        con.lineTo(currentHeadNext.element[0], currentHeadNext.element[1])
-        currentHeadNext = currentHeadNext.next
+      for (let i = 0; i < 2; i++) {
+        if (!currentHead.next) { return }
+        con.lineTo(currentHead.next.element[0], currentHead.next.element[1])
+        // currentHeadNext = currentHeadNext.next
       }
       
       let color = `hsla(${10 * j},100%,70%,${j / 50})`
-      con.fillStyle = color
+      // con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
       con.closePath()
@@ -71,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       con.stroke()
       currentHead = currentHead.next
     }
+
+    points.decapitate()
+    points.push([x, y])
   }
   // 移动监听 paint
   body.addEventListener('mousemove', paint, false)
