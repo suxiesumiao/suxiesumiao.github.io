@@ -8,7 +8,9 @@
         this.element = element || null
         this.previous = null
         this.next = null
+        this.self = this
       }
+      // 链表
       function LinkedList() {
         this.head = new Node()
         this.head.parent = this

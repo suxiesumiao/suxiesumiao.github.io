@@ -1,100 +1,103 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    min-height: 600px;
-    perspective: 1200px;
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #161823;
-    -webkit-font-smoothing: antialiased;
-    overflow: hidden;
+  height: 100vh;
+  min-height: 600px;
+  perspective: 1200px;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #161823;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 #container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 400px;
-    height: 300px;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #161823;
-    background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0);
-    user-select: none;
-    transition: box-shadow .6s;
-    animation: fadeIn 4s;
+  position: absolute;
+  display: flex;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #161823;
+  background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0);
+  user-select: none;
+  transition: box-shadow .6s;
+  animation: fadeIn 4s;
 }
 
 #container:hover {
-    cursor: pointer;
-    background-color: #231923;
-    background: linear-gradient( to left, #231923 0, #231923 30%, transparent 0, transparent 70%, #231923 0);
-    box-shadow: 0 0 10px #fffbf0;
+  cursor: pointer;
+  background-color: #231923;
+  background: linear-gradient( to left, #231923 0, #231923 30%, transparent 0, transparent 70%, #231923 0);
+  box-shadow: 0 0 10px #fffbf0;
 }
 
-#container:hover > .note{
-    border-top-color: transparent;
-    transition: all .5s;
+#container:hover>.note {
+  border-top-color: transparent;
+  transition: all .5s;
 }
 
 #container:active {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 @keyframes fadeIn {
-    60% {
-        box-shadow: 0 0 20px #fffbf0;
-    }
+  60% {
+    box-shadow: 0 0 20px #fffbf0;
+  }
 }
 
 h1 {
-    font-size: 30px;
-    color: #fffbf0;
-    font-variant: small-caps;
-    margin: 10px 0;
+  font-size: 30px;
+  color: #fffbf0;
+  font-variant: small-caps;
+  margin: 10px 0;
 }
 
 h3 {
-    color: #999;
+  color: #999;
 }
 
 p {
-    font-size: 14px;
-    padding: 4px 0;
-    color: #f2ecde;
+  font-size: 14px;
+  padding: 4px 0;
+  color: #f2ecde;
 }
 
 .note {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 20px;
-    border-top: 1px dashed #fef564;
-    text-align: center;
-    bottom: 0;
-    transition: all .5s;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+  border-top: 1px dashed #fef564;
+  text-align: center;
+  bottom: 0;
+  transition: all .5s;
 }
-.self{
-    color: gold;
+
+.self {
+  color: gold;
 }
+
 a {
-    color: #ddd;
-    text-decoration: none;
-    transition: all .3s;
+  color: #ddd;
+  text-decoration: none;
+  transition: all .3s;
 }
 
 a:hover {
-    color: #fef564;
+  color: #fef564;
 }
 
 #canvas {
-    position: absolute;
-    margin: 0 auto;
-    top: 0;
-    left: 0;
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
 }

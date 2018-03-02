@@ -35,16 +35,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     return pointLinkedList
   }
-  let point = pointMaker()
-
+  let points = pointMaker()
+  console.log(points)
   function paint(e) {
     let x = e.x + randomNumber(-3)
     let y = e.y + randomNumber(-3)
-    let currentHead = point.head
+    let currentHead = points.head
     let currentHeadNext = currentHead.next
     con.clearRect(0, 0, width, height)
-    point.decapitate()
-    point.push([x, y])
+    points.decapitate()
+    points.push([x, y])
     for (let j = 0; j < times - 2; j++) {
       if (!currentHead) {
         return
@@ -61,8 +61,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         con.lineTo(currentHeadNext.element[0], currentHeadNext.element[1])
         currentHeadNext = currentHeadNext.next
       }
-
-
+      
       let color = `hsla(${10 * j},100%,70%,${j / 50})`
       con.fillStyle = color
       con.strokeStyle = color
