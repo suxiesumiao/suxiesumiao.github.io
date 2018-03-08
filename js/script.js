@@ -66,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       currentHead = currentHead.next
     }
 
-    points.decapitate()
-    points.push([x, y])
+    points.decapitate().push([x, y])
   }
   // 移动监听 paint
   body.addEventListener('mousemove', paint, false)

@@ -87,6 +87,7 @@
           this.tail = newNode
 
           this.length++
+          return this
         },
         // 去除链表的首部元素 未考虑闭合链表
         decapitate: function () {
@@ -96,6 +97,7 @@
           }
           this.head = this.head.next
           this.length--
+          return this
         },
         // 删除名为 item 的节点
         // 返回要删除的节点
