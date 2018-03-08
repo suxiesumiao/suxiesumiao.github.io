@@ -2,7 +2,10 @@
 (function (global) {
   global.tools = {
     linklist: function () {
-      // 节点
+      /**
+       * 节点
+       * @param {*} element 
+       */
       function Node(element) {
         /**
          * 节点与节点之间是兄弟关系
@@ -21,8 +24,11 @@
       Node.prototype = {
         constructor: Node
       }
-      // 链表
-      function LinkedList() {
+      /**
+       * 链表
+       * @param {*} node 
+       */
+      function LinkedList(node) {
         /**
          * head: 链表的头部
          * tail: 链表的尾部
@@ -30,17 +36,20 @@
          * length: 链表包含的节点数目
          * isCycle: 链表是否头尾链接成环
          */
-        this.head = new Node()
+        this.head = node? new Node(node) : new Node
         this.head.parent = this
         this.tail = this.head
         this.self = this
         this.length = 1
         this.isCycle = false
       }
+      //
       LinkedList.prototype = {
         constructor: LinkedList,
-        // 查找某个名为 item 的节点
-        // 返回该节点
+        /**
+         * @param {*} item
+         * @returns node
+         */
         find: function (item) {
           var currNode = this.head
           // 判断暂时存在问题

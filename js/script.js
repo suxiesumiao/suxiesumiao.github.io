@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let width = canvas.width
   let height = canvas.height
   let con = canvas.getContext('2d')
-  if (!con) {
-    return
-  }
+  if (!con) { return }
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
@@ -33,29 +31,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
     return pointLinkedList
   }
   let points = pointMaker()
-  console.log(points)
   function paint(e) {
     let x = e.x + randomNumber(-3)
     let y = e.y + randomNumber(-3)
     let currentHead = points.head
-    // let currentHeadNext = currentHead.next
     con.clearRect(0, 0, width, height)
-    
-    for (let j = 0; j < times - 2; j++) {
+    /**
+     * 内循环跟外循环的循环次数的和应该维持在 times 次 以下
+     * shape : 1 线 2 面 3以上 体
+     */
+    let shape = 2
+    let counterOut = times - shape
+    for (let j = 0; j < counterOut; j++) {
       if (!currentHead) { return }
       con.beginPath()
       con.moveTo(currentHead.element[0], currentHead.element[1])
-      // for (let k = 1; k < 4; k++) {
-      //   con.lineTo(point[j + k][0], point[j + k][1])
-      // }
-      for (let i = 0; i < 2; i++) {
-        if (!currentHead.next) { return }
-        con.lineTo(currentHead.next.element[0], currentHead.next.element[1])
-        // currentHeadNext = currentHeadNext.next
+      /** 
+       * currentHeadInner : 内循环的头部
+       */
+      let currentHeadInner = currentHead
+      for (let i = 0; i < times - counterOut; i++) {
+        if (!currentHeadInner.next) { return }
+        con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
+        currentHeadInner = currentHeadInner.next
       }
-      
+
       let color = `hsla(${10 * j},100%,70%,${j / 50})`
-      // con.fillStyle = color
+      con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
       con.closePath()
