@@ -13,6 +13,9 @@ body {
   overflow: hidden;
 }
 
+.shine:nth-child(:even){
+  background-color: red;
+}
 #container {
   position: absolute;
   display: flex;

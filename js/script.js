@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     } else document.title = normal_title;
   });
   // 拉伸
-  window.addEventListener('resize', function () {
+  window.addEventListener('orientationchange' in window? orientationchange :'resize', function () {
     canvas.width = document.documentElement.clientWidth
     canvas.heigt = document.documentElement.clientHeight
   })
