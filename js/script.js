@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   // 形状选择的区域
   let shapeSelectedIndex = $('#shape')[0].selectedIndex
-  // console.log(shapeSelectedIndex)
+  //是否加入延迟 默认非延迟 延迟只在切换形状时候出现
+  let delayed = false
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
-  let times = 50
+  let times = 72
   let space = Math.floor(width / times)
 
   function randomNumber(i) {
@@ -65,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
         currentHeadInner = currentHeadInner.next
       }
-
-      let color = `hsla(${10 * j},100%,70%,${j / 50})`
+      let color = `hsla(${5 * j},100%,70%,${j / 72})`
       con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
@@ -104,10 +104,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     canvas.heigt = document.documentElement.clientHeight
   })
   // 形状改变部分
-  $('#shape').on('change', function(e){
+  $('#shape').on('change', function (e) {
     e.stopPropagation()
     shapeSelectedIndex = $(this)[0].selectedIndex
-    console.log(shapeSelectedIndex)
+    delayed = true
     paint(e);
   })
   // 中间hover部分
