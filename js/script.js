@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let width = canvas.width
   let height = canvas.height
   let con = canvas.getContext('2d')
-  if (!con) { return }
+  if (!con) {
+    return
+  }
+  // 形状选择的区域
+  let shapeSelectedIndex = $('#shape')[0].selectedIndex
+  // console.log(shapeSelectedIndex)
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
@@ -31,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     return pointLinkedList
   }
   let points = pointMaker()
+
   function paint(e) {
     let x = e.x + randomNumber(-3)
     let y = e.y + randomNumber(-3)
@@ -40,10 +46,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
      * 内循环跟外循环的循环次数的和应该维持在 times 次 以下
      * shape : 1 线 2 面 3以上 体
      */
-    let shape = 2
+    let shape = shapeSelectedIndex
     let counterOut = times - shape
     for (let j = 0; j < counterOut; j++) {
-      if (!currentHead) { return }
+      if (!currentHead) {
+        return
+      }
       con.beginPath()
       con.moveTo(currentHead.element[0], currentHead.element[1])
       /** 
@@ -51,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
        */
       let currentHeadInner = currentHead
       for (let i = 0; i < times - counterOut; i++) {
-        if (!currentHeadInner.next) { return }
+        if (!currentHeadInner.next) {
+          return
+        }
         con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
         currentHeadInner = currentHeadInner.next
       }
@@ -89,9 +99,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     } else document.title = normal_title;
   });
   // 拉伸
-  window.addEventListener('orientationchange' in window? orientationchange :'resize', function () {
+  window.addEventListener('orientationchange' in window ? orientationchange : 'resize', function () {
     canvas.width = document.documentElement.clientWidth
     canvas.heigt = document.documentElement.clientHeight
+  })
+  // 形状改变部分
+  $('#shape').on('change', function(e){
+    e.stopPropagation()
+    shapeSelectedIndex = $(this)[0].selectedIndex
+    console.log(shapeSelectedIndex)
+    paint(e);
   })
   // 中间hover部分
   let container = document.getElementById('container')

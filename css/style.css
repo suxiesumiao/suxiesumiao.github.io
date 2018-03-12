@@ -104,3 +104,10 @@ a:hover {
   top: 0;
   left: 0;
 }
+/* 形状选择的区域 */
+#shape{
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}

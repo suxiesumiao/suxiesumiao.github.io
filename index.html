@@ -23,8 +23,9 @@
 </head>
 
 <body>
+  <!-- canvas -->
   <canvas id="canvas">您的浏览器不支持canvas.</canvas>
-  <div class="shine">adasdada</div>
+  <!-- 链接区域 -->
   <div id="container">
     <h1> Vincent Zhu </h1>
     <h3>
@@ -43,6 +44,15 @@
     </p>
     <p class="note" title="note">Click to freeze & doubleclick to melt</p>
   </div>
+  <!-- 形状选择的区域 -->
+  <select name="shape" id="shape">
+    <option value="null" disabled>Choose a shape please...</option>
+    <option value="line">Line</option>
+    <option value="flat" selected>Flat</option>
+    <option value="tridem">Tridem</option>
+    <option value="superdem">Super-Tri</option>
+  </select>
+  <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
   <script src="js/tools.js"></script>
   <script src="js/script.js"></script>
 </body>

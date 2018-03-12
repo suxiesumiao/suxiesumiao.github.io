@@ -36,7 +36,7 @@
          * length: 链表包含的节点数目
          * isCycle: 链表是否头尾链接成环
          */
-        this.head = node? new Node(node) : new Node
+        this.head = node ? new Node(node) : new Node
         this.head.parent = this
         this.tail = this.head
         this.self = this
@@ -87,7 +87,7 @@
           this.tail = newNode
 
           this.length++
-          return this
+            return this
         },
         // 去除链表的首部元素 未考虑闭合链表
         decapitate: function () {
@@ -97,7 +97,7 @@
           }
           this.head = this.head.next
           this.length--
-          return this
+            return this
         },
         // 删除名为 item 的节点
         // 返回要删除的节点
@@ -108,12 +108,12 @@
             return
           }
           this.length--
-          // 如果要删除的节点是尾节点
-          if (!current.next) {
-            this.tail = current.previous
-            current.previous.next = null
-            return current
-          }
+            // 如果要删除的节点是尾节点
+            if (!current.next) {
+              this.tail = current.previous
+              current.previous.next = null
+              return current
+            }
           // 如果要删除的节点是头节点
           if (!current.previous) {
             this.head = current.next
