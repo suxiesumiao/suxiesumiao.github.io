@@ -107,10 +107,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     canvas.width = document.documentElement.clientWidth
     canvas.heigt = document.documentElement.clientHeight
   })
-  // let shapeArr = []
-  // for(let i = 0; i < $('#shape').children().length; i++){
-  //   console.dir($('#shape').children()[i].value)
-  // }
+  
   // 形状改变部分
   $('#shape').on('change', function (e) {
     shapeChanging = true;
