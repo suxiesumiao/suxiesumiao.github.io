@@ -13,9 +13,6 @@ body {
   overflow: hidden;
 }
 
-.shine:nth-child(:even){
-  background-color: red;
-}
 #container {
   position: absolute;
   display: flex;
@@ -110,4 +107,8 @@ a:hover {
   z-index: 99;
   top: 0;
   left: 0;
+  background-image: url(../images/line.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
 }

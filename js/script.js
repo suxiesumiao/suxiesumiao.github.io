@@ -103,12 +103,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     canvas.width = document.documentElement.clientWidth
     canvas.heigt = document.documentElement.clientHeight
   })
+  // let shapeArr = []
+  // for(let i = 0; i < $('#shape').children().length; i++){
+  //   console.dir($('#shape').children()[i].value)
+  // }
   // 形状改变部分
   $('#shape').on('change', function (e) {
     e.stopPropagation()
     shapeSelectedIndex = $(this)[0].selectedIndex
     delayed = true
     paint(e);
+    $(this).css({
+      'background-image': `url(../images/${shapeSelectedIndex}.svg)`
+    })
   })
   // 中间hover部分
   let container = document.getElementById('container')
