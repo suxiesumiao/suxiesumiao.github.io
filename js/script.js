@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   // 形状选择的区域
   let shapeSelectedIndex = $('#shape')[0].selectedIndex
-  //是否加入延迟 默认非延迟 延迟只在切换形状时候出现
-  let delayed = false
+  // 是否准备变形
+  let shapeChanging = false
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
@@ -75,7 +75,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
       con.stroke()
       currentHead = currentHead.next
     }
-
+    // 判断是否变形
+    if(shapeChanging){
+      shapeChanging = false
+      return
+    }
     points.decapitate().push([x, y])
   }
   // 移动监听 paint
@@ -109,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // }
   // 形状改变部分
   $('#shape').on('change', function (e) {
+    shapeChanging = true;
     e.stopPropagation()
     shapeSelectedIndex = $(this)[0].selectedIndex
-    delayed = true
     paint(e);
     $(this).css({
       'background-image': `url(../images/${shapeSelectedIndex}.svg)`
