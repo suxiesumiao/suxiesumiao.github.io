@@ -16,7 +16,6 @@ body {
 #container {
   position: absolute;
   display: flex;
-  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
