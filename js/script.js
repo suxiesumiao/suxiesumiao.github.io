@@ -23,17 +23,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   function pointMaker() {
-    let pointLinkedList = new LinkedList
-    for (let i = 0; i < times + 1; i++) {
-      let xDisten = width - space * i
-      let yDisten = randomNumber(i)
-      let temp = [xDisten, yDisten]
-      if (!pointLinkedList.head.element) {
-        pointLinkedList.head.element = temp
-      } else {
-        pointLinkedList.push(temp)
-      }
-    }
+    
+    // let pointLinkedList = new LinkedList
+    // for (let i = 0; i < times + 1; i++) {
+    //   let xDisten = width - space * i
+    //   let yDisten = randomNumber(i)
+    //   let temp = [xDisten, yDisten]
+    //   if (!pointLinkedList.head.element) {
+    //     pointLinkedList.head.element = temp
+    //   } else {
+    //     pointLinkedList.push(temp)
+    //   }
+    // }
+
+    let CirDots = tools.cirdots()
+    let pointLinkedList = new CirDots(
+      width,
+      height,
+      height / 2 - 20,
+      times,
+      true,
+      30
+    ).render();
+
+    console.log(pointLinkedList)
     return pointLinkedList
   }
   let points = pointMaker()
@@ -76,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       currentHead = currentHead.next
     }
     // 判断是否变形
-    if(shapeChanging){
+    if (shapeChanging) {
       shapeChanging = false
       return
     }
@@ -107,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     canvas.width = document.documentElement.clientWidth
     canvas.heigt = document.documentElement.clientHeight
   })
-  
+
   // 形状改变部分
   $('#shape').on('change', function (e) {
     shapeChanging = true;

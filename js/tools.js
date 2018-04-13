@@ -1,6 +1,9 @@
 ;
 (function (global) {
   global.tools = {
+    /**
+     * linklist 创建一个链表
+     */
     linklist: function () {
       /**
        * 节点
@@ -87,7 +90,7 @@
           this.tail = newNode
 
           this.length++
-            return this
+          return this
         },
         // 去除链表的首部元素 未考虑闭合链表
         decapitate: function () {
@@ -97,7 +100,7 @@
           }
           this.head = this.head.next
           this.length--
-            return this
+          return this
         },
         // 删除名为 item 的节点
         // 返回要删除的节点
@@ -108,12 +111,12 @@
             return
           }
           this.length--
-            // 如果要删除的节点是尾节点
-            if (!current.next) {
-              this.tail = current.previous
-              current.previous.next = null
-              return current
-            }
+          // 如果要删除的节点是尾节点
+          if (!current.next) {
+            this.tail = current.previous
+            current.previous.next = null
+            return current
+          }
           // 如果要删除的节点是头节点
           if (!current.previous) {
             this.head = current.next
@@ -188,6 +191,45 @@
         }
       }
       return LinkedList
+    },
+
+    /**
+     * cirdot 创建一组圆上的点
+     */
+    cirdots: function () {
+      function CirDots(width, height, radius, items, precise, alpha) {
+        this.width = width;
+        this.height = height;
+        this.radius = radius;
+        this.items = items;
+        this.precise = precise,
+        this.alpha = alpha
+      }
+      CirDots.prototype = {
+        constructor: CirDots,
+        render: function () {
+          // 正偏角弧度表示
+          var deg = (2 * Math.PI / this.items).toFixed(2);
+          // 创建链表
+          var linklist = new (global.tools.linklist());
+          var x;
+          var y;
+          var halfW = this.width / 2;
+          var halfH = this.height / 2;
+          // 添加节点 节点以双数数组表示
+          for(var i = 0; i < this.items; i++){
+            x = halfW + this.radius * Math.sin(deg * i)
+            y = halfH - this.radius * Math.cos(deg * i)
+            if(i !== 0){
+              linklist.push([x, y])  
+            }else{
+              linklist.head.element = [x, y]
+            }
+          }
+          return linklist
+        }
+      }
+      return CirDots
     }
   }
 })(window)

@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100);
 * {
   margin: 0;
   box-sizing: border-box;
@@ -7,7 +8,7 @@ body {
   height: 100vh;
   min-height: 600px;
   perspective: 1200px;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", cursive,"Droid Sans Mono", monospace,monaco,consolas, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #161823;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
