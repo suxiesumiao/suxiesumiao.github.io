@@ -15,7 +15,7 @@ body {
 }
 img#may{
   position: absolute;
-  width: 10%;
+  width: 20vmin;
   left: 50%;
   top: 50%;
   user-select: none;
@@ -28,8 +28,6 @@ img#may{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 20%;
-  /* height: 300px; */
   left: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) translateY(10%);
@@ -69,7 +67,7 @@ img#may{
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 5vmin;
   color: #fffbf0;
   font-variant: small-caps;
   margin: 10px 0;
@@ -77,10 +75,11 @@ h1 {
 
 h3 {
   color: #999;
+  font-size: 4vmin;
 }
 
 p {
-  font-size: 14px;
+  font-size: 3vmin;
   padding: 4px 0;
   color: #f2ecde;
 }
@@ -88,7 +87,7 @@ p {
 .note {
   width: 100%;
   padding: 10px 0;
-  font-size: 20px;
+  font-size: 2vmin;
   border-top: 1px dashed #fef564;
   text-align: center;
   bottom: 0;

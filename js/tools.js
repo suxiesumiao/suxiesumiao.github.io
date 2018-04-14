@@ -201,18 +201,18 @@
        * 点函数
        * @param {画布的宽度} width 
        * @param {画布的高度} height 
-       * @param {圆半径} radius 
        * @param {点数目} items 
        * @param {是否精确排布点} precise 
-       * @param {非精确排布点的模糊半径, 应用模糊半径相当于重设单点对圆心的半径} alpha 
+       * @param {非精确排布点的模糊半径, 应用模糊半径相当于重设单点对圆心的半径} alpha
        */
-      function CirDots(width, height, radius, items, precise, alpha) {
+      function CirDots(width, height, items, precise, alpha) {
         this.width = width;
         this.height = height;
-        this.radius = radius;
         this.items = items;
         this.precise = precise;
-        this.alpha = alpha
+        this.alpha = alpha;
+        // 半径为短边的一半
+        this.radius = (width < height? width / 2: height / 2) - alpha
       }
       CirDots.prototype = {
         constructor: CirDots,

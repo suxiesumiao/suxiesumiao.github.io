@@ -40,10 +40,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let pointLinkedList = new CirDots(
       width,
       height,
-      height / 2 - 30,
       times,
       true,
-      30
+      20
     ).render();
 
     console.log(pointLinkedList)
@@ -51,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   let points = pointMaker()
   paint();
+  let autoId = setInterval(function(){
+    let headEle = points.head.element;
+    points.decapitate().push(headEle)
+    paint();
+  }, 1000)
   function paint(e) {
     let currentHead = points.head
     con.clearRect(0, 0, width, height)
@@ -77,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
         currentHeadInner = currentHeadInner.next
       }
-      let color = `hsla(${6 * j},100%,70%,${j / times})`
+      let color = `hsla(${6 * (j + 1)},100%,70%,${j / times + .05})`
       con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
@@ -98,9 +102,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       points.decapitate().push([x, y])
     }
   }
-  // 移动监听 paint
+  // 移动监听 paint autoId
   body.addEventListener('mousemove', paint, false)
-
+  body.addEventListener('mousemove', function(){
+    clearInterval(autoId)
+  }, false)
+  
   // 单击取消对paint的监听
   body.addEventListener('click', function () {
     body.removeEventListener('mousemove', paint, false)
