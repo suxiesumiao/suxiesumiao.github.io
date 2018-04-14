@@ -197,16 +197,32 @@
      * cirdot 创建一组圆上的点
      */
     cirdots: function () {
+      /**
+       * 点函数
+       * @param {画布的宽度} width 
+       * @param {画布的高度} height 
+       * @param {圆半径} radius 
+       * @param {点数目} items 
+       * @param {是否精确排布点} precise 
+       * @param {非精确排布点的模糊半径, 应用模糊半径相当于重设单点对圆心的半径} alpha 
+       */
       function CirDots(width, height, radius, items, precise, alpha) {
         this.width = width;
         this.height = height;
         this.radius = radius;
         this.items = items;
-        this.precise = precise,
+        this.precise = precise;
         this.alpha = alpha
       }
       CirDots.prototype = {
         constructor: CirDots,
+        /**
+         * n : 模糊度
+         * 产生[-n, n]中间的随机数字
+         */
+        alphaNumbr: function(n){
+          return Math.random() * 2 * n - n
+        },
         render: function () {
           // 正偏角弧度表示
           var deg = (2 * Math.PI / this.items).toFixed(2);
@@ -216,13 +232,15 @@
           var y;
           var halfW = this.width / 2;
           var halfH = this.height / 2;
+          var radius = this.radius;
+          var alpha = this.alpha;
           // 添加节点 节点以双数数组表示
-          for(var i = 0; i < this.items; i++){
-            x = halfW + this.radius * Math.sin(deg * i)
-            y = halfH - this.radius * Math.cos(deg * i)
-            if(i !== 0){
-              linklist.push([x, y])  
-            }else{
+          for (var i = 0; i < this.items; i++) {
+            x = halfW + (radius + this.alphaNumbr(this.alpha)) * Math.sin(deg * i)
+            y = halfH - (radius + this.alphaNumbr(this.alpha)) * Math.cos(deg * i)
+            if (i !== 0) {
+              linklist.push([x, y])
+            } else {
               linklist.head.element = [x, y]
             }
           }

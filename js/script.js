@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
-  let times = 72
+  let times = 60
   let space = Math.floor(width / times)
 
   function randomNumber(i) {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   function pointMaker() {
-    
+
     // let pointLinkedList = new LinkedList
     // for (let i = 0; i < times + 1; i++) {
     //   let xDisten = width - space * i
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let pointLinkedList = new CirDots(
       width,
       height,
-      height / 2 - 20,
+      height / 2 - 30,
       times,
       true,
       30
@@ -50,10 +50,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     return pointLinkedList
   }
   let points = pointMaker()
-
+  paint();
   function paint(e) {
-    let x = e.x + randomNumber(-3)
-    let y = e.y + randomNumber(-3)
     let currentHead = points.head
     con.clearRect(0, 0, width, height)
     /**
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
         currentHeadInner = currentHeadInner.next
       }
-      let color = `hsla(${5 * j},100%,70%,${j / 72})`
+      let color = `hsla(${6 * j},100%,70%,${j / times})`
       con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
@@ -93,7 +91,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       shapeChanging = false
       return
     }
-    points.decapitate().push([x, y])
+    // 判断是否鼠标触发
+    if (!e) { return } else {
+      let x = e.x + randomNumber(-3)
+      let y = e.y + randomNumber(-3)
+      points.decapitate().push([x, y])
+    }
   }
   // 移动监听 paint
   body.addEventListener('mousemove', paint, false)
@@ -135,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let container = document.getElementById('container')
   let containerW = container.clientWidth * (-1)
   let containerH = container.clientHeight
-  let normal = 'translateX(-50%) translateY(-50%)'
+  let normal = 'translateX(-50%) translateY(10%)'
   container.addEventListener('mousemove', function (e) {
     let percentX = e.layerX / containerW
     let percentY = e.layerY / containerH
