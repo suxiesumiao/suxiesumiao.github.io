@@ -54,7 +54,7 @@
          * @returns node
          */
         find: function (item) {
-          var currNode = this.head
+          let currNode = this.head
           // 判断暂时存在问题
           while (currNode.element.toString() !== item.toString()) {
             currNode = currNode.next
@@ -67,8 +67,8 @@
         },
         // 在 item 的后面插入元素 newElement
         insert: function (item, newElement) {
-          var current = this.find(item)
-          var newNode = new Node(newElement)
+          let current = this.find(item)
+          let newNode = new Node(newElement)
           newNode.parent = this
           newNode.next = current.next
           current.next = newNode
@@ -82,8 +82,8 @@
         },
         // 在链表的尾部添加
         push: function (newElement) {
-          var tail = this.tail
-          var newNode = new Node(newElement)
+          let tail = this.tail
+          let newNode = new Node(newElement)
           newNode.parent = this
           tail.next = newNode
           newNode.previous = tail
@@ -105,7 +105,7 @@
         // 删除名为 item 的节点
         // 返回要删除的节点
         remove: function (item) {
-          var current = this.find(item)
+          let current = this.find(item)
           // 如果没找到这个节点
           if (!current) {
             return
@@ -135,8 +135,8 @@
           //   console.warn("you can't use the methods of reverse under ths state of isCycle.")
           //   return
           // }
-          var currNode = this.head
-          var temp
+          let currNode = this.head
+          let temp
           while (currNode && currNode.element) {
             temp = currNode.next
             currNode.next = currNode.previous
@@ -169,8 +169,8 @@
         // item_0 为 head
         // item_1 为 tail
         seprate: function (item_0, item_1) {
-          var tempHead = this.find(item_0)
-          var tempTail = this.find(item_1)
+          let tempHead = this.find(item_0)
+          let tempTail = this.find(item_1)
           if (!this.isCycle) {
             console.warn("you can't use this methods whthout the state of isCycle")
             return
@@ -225,17 +225,17 @@
         },
         render: function () {
           // 正偏角弧度表示
-          var deg = (2 * Math.PI / this.items).toFixed(2);
+          let deg = (2 * Math.PI / this.items).toFixed(2);
           // 创建链表
-          var linklist = new (global.tools.linklist());
-          var x;
-          var y;
-          var halfW = this.width / 2;
-          var halfH = this.height / 2;
-          var radius = this.radius;
-          var alpha = this.alpha;
+          let linklist = new (global.tools.linklist());
+          let x;
+          let y;
+          let halfW = this.width / 2;
+          let halfH = this.height / 2;
+          let radius = this.radius;
+          let alpha = this.alpha;
           // 添加节点 节点以双数数组表示
-          for (var i = 0; i < this.items; i++) {
+          for (let i = 0; i < this.items; i++) {
             x = halfW + (radius + this.alphaNumbr(this.alpha)) * Math.sin(deg * i)
             y = halfH - (radius + this.alphaNumbr(this.alpha)) * Math.cos(deg * i)
             if (i !== 0) {

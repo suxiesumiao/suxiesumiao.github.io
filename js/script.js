@@ -1,13 +1,31 @@
 document.addEventListener("DOMContentLoaded", function (event) {
   let canvas = document.getElementById('canvas')
-  canvas.width = document.documentElement.clientWidth
-  canvas.height = document.documentElement.clientHeight
-  let width = canvas.width
-  let height = canvas.height
   let con = canvas.getContext('2d')
   if (!con) {
     return
   }
+  const ISPC = (function () {
+    if (navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)) {
+      return false
+    } else {
+      return true
+    }
+  })();
+  // alert(ISPC)
+  // 获取设备的像素比
+  let ratio = getPixelRatio(con)
+  let width = canvas.width = document.documentElement.clientWidth * ratio
+  let height = canvas.height = document.documentElement.clientHeight * ratio
+
+  // 高清屏幕缩放
+  canvas.style.transform = `scale(${1 / ratio})`
+
   // 形状选择的区域
   let shapeSelectedIndex = $('#shape')[0].selectedIndex
   // 是否准备变形
@@ -17,6 +35,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let body = document.getElementsByTagName('body')[0]
   let times = 60
   let space = Math.floor(width / times)
+
+  // 设备的像素比函数
+  function getPixelRatio(context) {
+    var backingStore = context.backingStorePixelRatio ||
+      context.webkitBackingStorePixelRatio ||
+      context.mozBackingStorePixelRatio ||
+      context.msBackingStorePixelRatio ||
+      context.oBackingStorePixelRatio ||
+      context.backingStorePixelRatio || 1;
+    return (window.devicePixelRatio || 1) / backingStore;
+  };
 
   function randomNumber(i) {
     return Math.floor(Math.random() * 60 + 15 * i)
@@ -42,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       height,
       times,
       true,
-      20
+      30
     ).render();
 
     console.log(pointLinkedList)
@@ -50,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   let points = pointMaker()
   paint();
-  let autoId = setInterval(function(){
+  let autoId = setInterval(function () {
     let headEle = points.head.element;
     points.decapitate().push(headEle)
     paint();
@@ -104,10 +133,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   // 移动监听 paint autoId
   body.addEventListener('mousemove', paint, false)
-  body.addEventListener('mousemove', function(){
+  body.addEventListener('mousemove', function () {
     clearInterval(autoId)
   }, false)
-  
+
   // 单击取消对paint的监听
   body.addEventListener('click', function () {
     body.removeEventListener('mousemove', paint, false)
@@ -145,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let container = document.getElementById('container')
   let containerW = container.clientWidth * (-1)
   let containerH = container.clientHeight
-  let normal = 'translateX(-50%) translateY(10%)'
+  let normal = 'translateX(-50%) translateY(-35%)'
   container.addEventListener('mousemove', function (e) {
     let percentX = e.layerX / containerW
     let percentY = e.layerY / containerH

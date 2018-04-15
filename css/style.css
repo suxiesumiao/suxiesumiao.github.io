@@ -20,7 +20,7 @@ img#may{
   top: 50%;
   user-select: none;
   -webkit-transform: translateX(-50%) translateY(10%);
-  transform: translateX(-50%) translateY(-100%);
+  transform: translateX(-50%) translateY(-150%);
 }
 #container {
   position: absolute;
@@ -31,7 +31,7 @@ img#may{
   left: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) translateY(10%);
-  transform: translateX(-50%) translateY(10%);
+  transform: translateX(-50%) translateY(-35%);
   background-color: #161823;
   background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0);
   user-select: none;
@@ -115,6 +115,7 @@ a:hover {
   margin: 0 auto;
   top: 0;
   left: 0;
+  transform-origin: top left;
 }
 /* 形状选择的区域 */
 #shape{
