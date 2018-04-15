@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let container = document.getElementById('container')
   let containerW = container.clientWidth * (-1)
   let containerH = container.clientHeight
-  let normal = 'translateX(-50%) translateY(-35%)'
+  let normal = 'translateX(-50%) translateY(10%)'
   container.addEventListener('mousemove', function (e) {
     let percentX = e.layerX / containerW
     let percentY = e.layerY / containerH
