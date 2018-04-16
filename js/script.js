@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
-  let times = 60
+  let times = 17
   let space = Math.floor(width / times)
 
   // 设备的像素比函数
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
         currentHeadInner = currentHeadInner.next
       }
-      let color = `hsla(${6 * (j + 1)},100%,70%,${j / times + .05})`
+      let color = `hsla(${6 * (j + 1)},100%,70%,${(j / times + .2) * .6})`
       con.fillStyle = color
       con.strokeStyle = color
       con.lineJoin = 'round'
