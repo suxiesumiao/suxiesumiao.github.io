@@ -236,11 +236,11 @@
           let alpha = this.alpha;
           // 添加节点 节点以双数数组表示
           for (let i = 0; i < this.items; i++) {
-            // x = halfW + (radius + this.alphaNumbr(this.alpha)) * Math.sin(deg * i)
-            // y = halfH - (radius + this.alphaNumbr(this.alpha)) * Math.cos(deg * i)
+            x = halfW + (radius + this.alphaNumbr(this.alpha)) * Math.sin(deg * i)
+            y = halfH - (radius + this.alphaNumbr(this.alpha)) * Math.cos(deg * i)
 
-            x = halfW + radius * Math.sin(deg * i)
-            y = halfH - radius * Math.cos(deg * i)
+            // x = halfW + radius * Math.sin(deg * i)
+            // y = halfH - radius * Math.cos(deg * i)
             if (i !== 0) {
               linklist.push([x, y])
             } else {
