@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // 链表引入
   let LinkedList = tools.linklist()
   let body = document.getElementsByTagName('body')[0]
-  let times = 17
+  let times = 60
   let space = Math.floor(width / times)
 
   // 设备的像素比函数
