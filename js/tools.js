@@ -90,7 +90,7 @@
           this.tail = newNode
 
           this.length++
-          return this
+            return this
         },
         // 去除链表的首部元素 未考虑闭合链表
         decapitate: function () {
@@ -100,7 +100,7 @@
           }
           this.head = this.head.next
           this.length--
-          return this
+            return this
         },
         // 删除名为 item 的节点
         // 返回要删除的节点
@@ -111,12 +111,12 @@
             return
           }
           this.length--
-          // 如果要删除的节点是尾节点
-          if (!current.next) {
-            this.tail = current.previous
-            current.previous.next = null
-            return current
-          }
+            // 如果要删除的节点是尾节点
+            if (!current.next) {
+              this.tail = current.previous
+              current.previous.next = null
+              return current
+            }
           // 如果要删除的节点是头节点
           if (!current.previous) {
             this.head = current.next
@@ -212,7 +212,7 @@
         this.precise = precise;
         this.alpha = alpha;
         // 半径为短边的一半
-        this.radius = (width < height? width / 2: height / 2) - alpha
+        this.radius = (width < height ? width / 2 : height / 2) - alpha
       }
       CirDots.prototype = {
         constructor: CirDots,
@@ -220,14 +220,14 @@
          * n : 模糊度
          * 产生[-n, n]中间的随机数字
          */
-        alphaNumbr: function(n){
+        alphaNumbr: function (n) {
           return Math.random() * 2 * n - n
         },
         render: function () {
           // 正偏角弧度表示
           let deg = (2 * Math.PI / this.items);
           // 创建链表
-          let linklist = new (global.tools.linklist());
+          let linklist = new(global.tools.linklist());
           let x;
           let y;
           let halfW = this.width / 2;
