@@ -156,8 +156,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
   // 拉伸
   window.addEventListener('orientationchange' in window ? orientationchange : 'resize', function () {
-    canvas.width = document.documentElement.clientWidth
-    canvas.heigt = document.documentElement.clientHeight
+    canvas.width = document.documentElement.clientWidth * ratio
+    canvas.heigt = document.documentElement.clientHeight * ratio
   })
 
   // 形状改变部分
