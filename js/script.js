@@ -75,15 +75,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
     ).render();
 
     console.log(pointLinkedList)
+    const segmentCount = 10;
+    let head = pointLinkedList.head
+    while (head) {
+      let child = [];
+      let x_differ = 0;
+      let y_differ = 0;
+      if(head.next) {
+        x_differ = head.next.element[0] - head.element[0];
+        y_differ = head.next.element[1] - head.element[1];
+      } else {
+        x_differ = pointLinkedList.head.element[0] - head.element[0];
+        y_differ = pointLinkedList.head.element[1] - head.element[1];
+      }
+      let x_piece = x_differ / segmentCount;
+      let y_piece = y_differ / segmentCount;
+      for(let m = 1; m < segmentCount; m++) {
+        child.push({
+          x: head.element[0] + x_piece * m,
+          y: head.element[1] + y_piece * m
+        })
+      }
+      head.child = child;
+      head = head.next
+    }
     return pointLinkedList
   }
   let points = pointMaker()
   paint();
-  let autoId = setInterval(function () {
-    let headEle = points.head.element;
-    points.decapitate().push(headEle)
-    paint();
-  }, 1000)
+  // let autoId = setInterval(function () {
+  //   let headEle = points.head.element;
+  //   points.decapitate().push(headEle)
+  //   paint();
+  // }, 1000)
   function paint(e) {
     let currentHead = points.head
     con.clearRect(0, 0, width, height)
@@ -98,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return
       }
       con.beginPath()
+      // con.arc(currentHead.element[0], currentHead.element[1], 20, 0, Math.PI * 2)
       con.moveTo(currentHead.element[0], currentHead.element[1])
       /** 
        * currentHeadInner : 内循环的头部
