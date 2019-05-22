@@ -50,21 +50,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function randomNumber(i) {
     return Math.floor(Math.random() * 60 + 15 * i)
   }
-  const segmentCount = 50;
+  const segmentCount = 70;
   function pointMaker() {
-
-    // let pointLinkedList = new LinkedList
-    // for (let i = 0; i < times + 1; i++) {
-    //   let xDisten = width - space * i
-    //   let yDisten = randomNumber(i)
-    //   let temp = [xDisten, yDisten]
-    //   if (!pointLinkedList.head.element) {
-    //     pointLinkedList.head.element = temp
-    //   } else {
-    //     pointLinkedList.push(temp)
-    //   }
-    // }
-
     let CirDots = tools.cirdots()
     let pointLinkedList = new CirDots(
       width,
@@ -96,18 +83,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
       head.child = child;
       head = head.next
     }
-    // pointLinkedList.head.update();
     return pointLinkedList
   }
   let points = pointMaker()
   paint();
+  let loop = 0
   let autoId = setInterval(function () {
+    loop = ++loop > segmentCount - 2? 0: loop
     let headEle = points.head.element;
-    // points.decapitate().push(headEle)
+    let child = points.head.child
     let head = points.head
     while (head) {
       head.update(segmentCount - 2);
       head = head.next;
+    }
+    if(!loop) {
+      points.decapitate().push(headEle, child)
     }
     paint();
   }, 60)
@@ -125,8 +116,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return
       }
       con.beginPath()
-      // console.log(currentHead.element)
-      // con.arc(currentHead.element[0], currentHead.element[1], 20, 0, Math.PI * 2)
       con.moveTo(currentHead.element.x, currentHead.element.y)
       /** 
        * currentHeadInner : 内循环的头部

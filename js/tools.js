@@ -23,7 +23,7 @@
         this.previous = null
         this.next = null
         this.self = this
-        this.child = null
+        // this.child = null
         this.childindex = 0
       }
       Node.prototype = {
@@ -87,12 +87,15 @@
           this.length++
         },
         // 在链表的尾部添加
-        push: function (newElement) {
+        push: function (newElement, child) {
           let tail = this.tail
           let newNode = new Node(newElement)
           newNode.parent = this
           tail.next = newNode
           newNode.previous = tail
+          if (child) {
+            newNode.child = child
+          }
           this.tail = newNode
 
           this.length++
