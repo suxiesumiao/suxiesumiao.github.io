@@ -28,10 +28,9 @@
       }
       Node.prototype = {
         constructor: Node,
-        update: function () {
+        update: function (times) {
           this.element = this.child[this.childindex]
-          // console.log(this.childindex)
-          this.childindex = ++this.childindex > 8? 0: this.childindex
+          this.childindex = ++this.childindex > times ? 0 : this.childindex
         }
       }
       /**
@@ -249,9 +248,9 @@
             // x = halfW + radius * Math.sin(deg * i)
             // y = halfH - radius * Math.cos(deg * i)
             if (i !== 0) {
-              linklist.push([x, y])
+              linklist.push({ x, y })
             } else {
-              linklist.head.element = [x, y]
+              linklist.head.element = { x, y }
             }
           }
           return linklist

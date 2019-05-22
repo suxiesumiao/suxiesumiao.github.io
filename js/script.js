@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function randomNumber(i) {
     return Math.floor(Math.random() * 60 + 15 * i)
   }
-
+  const segmentCount = 50;
   function pointMaker() {
 
     // let pointLinkedList = new LinkedList
@@ -73,32 +73,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
       true,
       30
     ).render();
-    const segmentCount = 10;
     let head = pointLinkedList.head
     while (head) {
       let child = [];
       let x_differ = 0;
       let y_differ = 0;
       if (head.next) {
-        x_differ = head.next.element[0] - head.element[0];
-        y_differ = head.next.element[1] - head.element[1];
+        x_differ = head.next.element.x - head.element.x;
+        y_differ = head.next.element.y - head.element.y;
       } else {
-        x_differ = pointLinkedList.head.element[0] - head.element[0];
-        y_differ = pointLinkedList.head.element[1] - head.element[1];
+        x_differ = pointLinkedList.head.element.x - head.element.x;
+        y_differ = pointLinkedList.head.element.y - head.element.y;
       }
       let x_piece = x_differ / segmentCount;
       let y_piece = y_differ / segmentCount;
       for (let m = 1; m < segmentCount; m++) {
         child.push({
-          x: head.element[0] + x_piece * m,
-          y: head.element[1] + y_piece * m
+          x: head.element.x + x_piece * m,
+          y: head.element.y + y_piece * m
         })
       }
       head.child = child;
       head = head.next
     }
     // pointLinkedList.head.update();
-    console.log(pointLinkedList)
     return pointLinkedList
   }
   let points = pointMaker()
@@ -106,8 +104,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let autoId = setInterval(function () {
     let headEle = points.head.element;
     // points.decapitate().push(headEle)
+    let head = points.head
+    while (head) {
+      head.update(segmentCount - 2);
+      head = head.next;
+    }
     paint();
-  }, 1000)
+  }, 60)
   function paint(e) {
     let currentHead = points.head
     con.clearRect(0, 0, width, height)
@@ -124,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       con.beginPath()
       // console.log(currentHead.element)
       // con.arc(currentHead.element[0], currentHead.element[1], 20, 0, Math.PI * 2)
-      con.moveTo(currentHead.element[0], currentHead.element[1])
+      con.moveTo(currentHead.element.x, currentHead.element.y)
       /** 
        * currentHeadInner : 内循环的头部
        */
@@ -133,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (!currentHeadInner.next) {
           return
         }
-        con.lineTo(currentHeadInner.next.element[0], currentHeadInner.next.element[1])
+        con.lineTo(currentHeadInner.next.element.x, currentHeadInner.next.element.y)
         currentHeadInner = currentHeadInner.next
       }
       let color = `hsla(${6 * (j + 1)},100%,70%,${(j / times + .2) * .6})`
@@ -143,11 +146,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       con.closePath()
       con.fill()
       con.stroke()
-      // currentHead.update();
-      // console.log(currentHead)
-      // console.log(currentHead.childindex)
       currentHead = currentHead.next
     }
+
     // 判断是否变形
     if (shapeChanging) {
       shapeChanging = false
@@ -157,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (!e) { return } else {
       let x = e.x + randomNumber(-3)
       let y = e.y + randomNumber(-3)
-      points.decapitate().push([x, y])
+      points.decapitate().push({ x, y })
     }
   }
   // 移动监听 paint autoId
