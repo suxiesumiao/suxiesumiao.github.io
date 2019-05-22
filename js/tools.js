@@ -23,9 +23,16 @@
         this.previous = null
         this.next = null
         this.self = this
+        this.child = null
+        this.childindex = 0
       }
       Node.prototype = {
-        constructor: Node
+        constructor: Node,
+        update: function () {
+          this.element = this.child[this.childindex]
+          // console.log(this.childindex)
+          this.childindex = ++this.childindex > 8? 0: this.childindex
+        }
       }
       /**
        * 链表
@@ -90,7 +97,7 @@
           this.tail = newNode
 
           this.length++
-            return this
+          return this
         },
         // 去除链表的首部元素 未考虑闭合链表
         decapitate: function () {
@@ -100,7 +107,7 @@
           }
           this.head = this.head.next
           this.length--
-            return this
+          return this
         },
         // 删除名为 item 的节点
         // 返回要删除的节点
@@ -111,12 +118,12 @@
             return
           }
           this.length--
-            // 如果要删除的节点是尾节点
-            if (!current.next) {
-              this.tail = current.previous
-              current.previous.next = null
-              return current
-            }
+          // 如果要删除的节点是尾节点
+          if (!current.next) {
+            this.tail = current.previous
+            current.previous.next = null
+            return current
+          }
           // 如果要删除的节点是头节点
           if (!current.previous) {
             this.head = current.next
@@ -227,7 +234,7 @@
           // 正偏角弧度表示
           let deg = (2 * Math.PI / this.items);
           // 创建链表
-          let linklist = new(global.tools.linklist());
+          let linklist = new (global.tools.linklist());
           let x;
           let y;
           let halfW = this.width / 2;
