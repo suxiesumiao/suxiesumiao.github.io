@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function randomNumber(i) {
     return Math.floor(Math.random() * 60 + 15 * i)
   }
-  const segmentCount = 70;
+  const segmentCount = 70;//  节点之间分为多少块
   function pointMaker() {
     let CirDots = tools.cirdots()
     let pointLinkedList = new CirDots(
@@ -86,10 +86,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     return pointLinkedList
   }
   let points = pointMaker()
-  paint();
-  let loop = 0
+  // paint();
+  let loopNode = 0
   let autoId = setInterval(function () {
-    loop = ++loop > segmentCount - 2? 0: loop
+    loopNode = ++loopNode > segmentCount - 2 ? 0 : loopNode
     let headEle = points.head.element;
     let child = points.head.child
     let head = points.head
@@ -97,11 +97,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       head.update(segmentCount - 2);
       head = head.next;
     }
-    if(!loop) {
+    if (!loopNode) {
       points.decapitate().push(headEle, child)
     }
     paint();
-  }, 60)
+  }, 100)
+
   function paint(e) {
     let currentHead = points.head
     con.clearRect(0, 0, width, height)
