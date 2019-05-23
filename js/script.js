@@ -89,16 +89,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // paint();
   let loopNode = 0
   let autoId = setInterval(function () {
-    loopNode = ++loopNode > segmentCount - 2 ? 0 : loopNode
     let headEle = points.head.element;
     let child = points.head.child
+    if (!loopNode) {
+      points.decapitate().push(headEle, child)
+    }
+    loopNode = ++loopNode > segmentCount - 2 ? 0 : loopNode
     let head = points.head
     while (head) {
       head.update(segmentCount - 2);
       head = head.next;
-    }
-    if (!loopNode) {
-      points.decapitate().push(headEle, child)
     }
     paint();
   }, 100)
