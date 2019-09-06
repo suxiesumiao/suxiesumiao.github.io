@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     // 判断是否鼠标触发
     if (!e) { return } else {
-      let x = e.x + randomNumber(-3)
-      let y = e.y + randomNumber(-3)
+      let x = e.x * ratio + randomNumber(-3)
+      let y = e.y * ratio + randomNumber(-3)
       points.decapitate().push({ x, y })
     }
   }
