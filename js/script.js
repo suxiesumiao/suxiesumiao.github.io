@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       height,
       times,
       true,
-      30
+      30 * ratio
     ).render();
     let head = pointLinkedList.head
     while (head) {
