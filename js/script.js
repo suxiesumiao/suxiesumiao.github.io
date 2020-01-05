@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   canvas.style.transform = `scale(${1 / ratio})`
 
   // 形状选择的区域
-  let shapeSelectedIndex = $('#shape')[0].selectedIndex
+  let shapeSelectedIndex = shape.selectedIndex
   // 是否准备变形
   let shapeChanging = false
   // 链表引入
   let LinkedList = tools.linklist()
-  let body = document.getElementsByTagName('body')[0]
+  let body = document.body
   let times = 60
   let space = Math.floor(width / times)
 

@@ -262,4 +262,4 @@
       return CirDots
     }
   }
-})(window)
+})(window);
