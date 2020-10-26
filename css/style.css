@@ -32,8 +32,9 @@ img#may{
   justify-content: space-between;
   left: 50%;
   top: 50%;
-  -webkit-transform: translateX(-50%) translateY(10%);
-  transform: translateX(-50%) translateY(10%);
+  padding: 10px;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
   /* background-color: #161823; */
   /* background: linear-gradient( to left, #161823 0, #161823 30%, transparent 0, transparent 70%, #161823 0); */
   user-select: none;
@@ -41,12 +42,12 @@ img#may{
   transition: box-shadow .6s;
   -webkit-animation: fadeIn 4s;
   animation: fadeIn 4s;
+  border-radius: 4px;
 }
 
 #container:hover {
-  cursor: pointer;
   background-color: #231923;
-  background: linear-gradient( to left, #231923 0, #231923 30%, transparent 0, transparent 70%, #231923 0);
+  background: linear-gradient( -60deg , #243698 0, #243698 30%, transparent 0, transparent 70%, #243698 0);
   -webkit-box-shadow: 0 0 10px #fffbf0;
   box-shadow: 0 0 10px #fffbf0;
 }
@@ -80,7 +81,7 @@ h3 {
   font-size: 4vmin;
 }
 
-p {
+code {
   font-size: 3vmin;
   padding: 4px 0;
   color: #f2ecde;
