@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   container.addEventListener('mousemove', function (e) {
     let percentX = e.layerX / containerW
     let percentY = e.layerY / containerH
-    this.style.transform = normal + ' rotateX(' + percentY * 10 + 'deg) rotateY(' + percentX * 10 + 'deg)'
+    this.style.transform = normal + ' rotateX('+ percentY * 20 + 'deg) rotateY(' + percentX * 20 + 'deg)'
   }, false)
 
   container.addEventListener('mouseleave', function (e) {
