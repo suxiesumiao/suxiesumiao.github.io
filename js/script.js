@@ -23,9 +23,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let width = canvas.width = document.documentElement.clientWidth * ratio
   let height = canvas.height = document.documentElement.clientHeight * ratio
 
-  // 高清屏幕缩放
-  canvas.style.transform = `scale(${1 / ratio})`
-
   // 形状选择的区域
   let shapeSelectedIndex = $('#shape')[0].selectedIndex
   // 是否准备变形

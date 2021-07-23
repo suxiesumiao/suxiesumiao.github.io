@@ -111,11 +111,8 @@ a:hover {
 }
 
 #canvas {
-  position: absolute;
+  height: 100vh;
   margin: 0 auto;
-  top: 0;
-  left: 0;
-  transform-origin: top left;
 }
 /* 形状选择的区域 */
 #shape{
